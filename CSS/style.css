@@ -1,0 +1,706 @@
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* STRICT SYSTEM CURSOR OFF */
+html,
+body {
+    cursor: url("../gallery/cursorlogo.png") 24 14, none !important;
+}
+
+/* FORCE EVERY ELEMENT */
+*,
+a,
+a:hover,
+a:active,
+a:focus,
+nav a,
+nav a:hover,
+nav a:active,
+nav a:focus,
+button,
+button:hover,
+button:active,
+button:focus {
+    cursor: url("../gallery/cursorlogo.png") 24 14, none !important;
+}
+
+/* Chrome, Edge, Safari scrollbar*/
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff0000, #cc0000);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ff3333, #990000);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #ff0000 rgba(0, 0, 0, 0.8);
+}
+
+/* text-selection color */
+
+::selection {
+    background: rgba(233, 38, 38, 0.729);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: rgba(235, 34, 34, 0.701);
+    color: #ffffff;
+}
+
+
+/* rest css */
+
+body {
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    position: relative;
+}
+
+/* Hover underline */
+nav ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: red;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* background video */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* DARK OVERLAY */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+
+}
+
+/* web on click z-index css*/
+.web-line {
+  z-index: 9999;
+  pointer-events: none; /* clicks block na kare */
+}
+
+
+
+
+
+
+/* FIRST SECTION HERO SECTION Hero */
+.first-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    animation: fadeIn 2s ease-in;
+}
+
+.first-section h1 {
+    font-size: 60px;
+    letter-spacing: 5px;
+}
+
+.first-section p {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.first-section a:hover {
+    background: rgba(227, 27, 27, 0.98);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px red;
+}
+
+.first-section a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ea1e1e;
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+}
+
+
+
+
+
+
+
+
+
+/* ===== SECOND SECTION (SPIDEY SNAP CARDS HAI ) ===== */
+
+.second-section {
+    min-height: 100vh;
+    padding: 100px 40px;
+    background: none;
+    margin-top: 0;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title span {
+    color: #fff;
+}
+
+/* title */
+.section-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: rgb(237, 48, 48);
+    margin-bottom: 30px;
+    display: inline-block;
+    /* IMPORTANT */
+    padding: 6px 14px;
+}
+
+/* grid layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* cards */
+.card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 18px;
+    transition: 0.3s ease;
+    backdrop-filter: blur(6px);
+}
+
+/* hover effect */
+.card:hover {
+    transform: translateY(-8px);
+    border-color: red;
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+}
+
+/* heading inside card */
+.card h3 {
+    margin-bottom: 12px;
+    color: #ffcccc;
+    font-size: 20px;
+}
+
+/* text */
+.card p {
+    color: #ddd;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .second-section {
+        padding: 70px 20px;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* third section LEFT TO RIGHT SPIDERMAN TEXT */
+#page4 {
+    min-height: 100vh;
+    width: 100vw;
+    background: transparent;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+#page4 h1 {
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    font-size: 40vw;
+    white-space: nowrap;
+}
+
+.third-section .redatmiddle {
+    color: transparent;
+    -webkit-text-stroke: 2px #ff0000;
+}
+
+
+.third-section .redtextatmiddle {
+    color: #ff0000;
+    -webkit-text-stroke: 2px white;
+}
+
+.third-section .whitetextatmiddle {
+    color: white;
+}
+
+
+
+
+
+
+
+
+/* fouth section  WEB STRING */
+
+
+
+.fourth-section #string {
+    display: flex;
+    justify-content: center;
+    /* horizontal center */
+    height: 1200px;
+    width: 100%;
+    background-color: rgb(19, 106, 134);
+}
+
+
+
+
+
+
+
+
+
+
+/* fifth section - MAGINFYING IMAGE */
+.fifth-section {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: 240px 240px 240px;
+    padding: 40px;
+    gap: 10px;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Image */
+.box {
+    width: 320px;
+    height: 190px;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text */
+.text {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Positions */
+.img1 {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.txt1 {
+    grid-row: 1;
+    grid-column: 2;
+    margin-left: 15px;
+    transform: scaleY(1.5);
+}
+
+.img2 {
+    grid-row: 2;
+    grid-column: 4;
+    margin-left: 15px;
+}
+
+.txt2 {
+    grid-row: 2;
+    grid-column: 1/3;
+    text-align: right;
+    justify-content: flex-end;
+    transform: scaleY(1.5);
+}
+
+.img3 {
+    grid-row: 3;
+    grid-column: 1;
+}
+
+.txt3 {
+    grid-row: 3;
+    grid-column: 2;
+    margin-left: 15px;
+    transform: scaleY(1.5);
+}
+
+/* 5th section responsiveness */
+@media (max-width: 768px) {
+
+    .fifth-section {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* each item becomes block */
+    .box,
+    .text {
+        width: 100%;
+    }
+
+    /* image styling */
+    .box {
+        height: 200px;
+    }
+
+    /* text always below image naturally */
+    .text {
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 5px 0 15px 0;
+        text-align: left;       /* reset alignment for mobile */
+        justify-content: flex-start;
+    }
+
+    /* remove grid behavior ONLY on mobile */
+    .img1,
+    .img2,
+    .img3,
+    .txt1,
+    .txt2,
+    .txt3 {
+        grid-row: auto !important;
+        grid-column: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .box {
+        height: 160px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* sixth section  */
+.spidey-showcase {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+    background: black;
+    overflow: hidden;
+}
+
+.spidey-left {
+    width: 50%;
+}
+
+.spidey-title span {
+    display: block;
+    font-size: 60px;
+    font-weight: 800;
+    color: white;
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.spidey-title .red {
+    color: red;
+}
+
+.spidey-desc {
+    margin-top: 20px;
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.spidey-right {
+    width: 45%;
+    overflow: hidden;
+}
+
+.spidey-right img {
+    width: 100%;
+    border-radius: 20px;
+    transform: scale(1.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* footer main */
+.spidey-footer {
+    height: 50vh;
+    width: 100%;
+    background: rgba(15, 20, 30, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 2px solid rgb(114, 18, 18);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  /* ya remove kar de */
+    padding: 60px 50px;
+    gap: 10px;  /* apne hisaab se control */
+}
+
+
+/* TOP ROW (left center right) */
+.spidey-footer .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LEFT */
+.footer-left {
+    width: 35%;
+    color: white;
+}
+
+.footer-left h2 {
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.footer-left p {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+/* CENTER */
+.footer-center {
+    width: 30%;
+    text-align: center;
+}
+
+.tagline {
+    font-size: 14px;
+    color: #ff3b3b;
+    font-style: italic;
+}
+
+/* RIGHT */
+.footer-right {
+    width: 35%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+/* BOTTOM */
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+}
+
+.footer-bottom p:hover {
+    color: red;
+    transition: 0.3s;
+}
+
+/* ICON */
+.icon {
+    font-size: 34px;
+    color: white;
+    transition: 0.3s;
+}
+
+.icon:hover {
+    color: red;
+    transform: translateY(-6px) scale(1.2);
+    filter: drop-shadow(0 0 10px red);
+}
+
+/* tagline-footer */
+
+.tagline-footer{
+    text-align: center;
+}
+
+.tagline-footer p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+}
+
+/* ICON */
+.heart-icon {
+    position: relative;
+    top: 6px;
+}
+
+.tagline-footer p:hover,
+.tagline-footer p:hover .heart-icon {
+    color: red;
+}
+
+/* 👇 ye magic hai */
+
+.footer-bottom-wrapper {
+    margin-top: auto;   /* 🔥 pushes it to bottom */
+    text-align: center;
+}
+
+/* gap control */
+
+.footer-bottom-wrapper p {
+    margin: 8px 0;
+}

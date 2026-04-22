@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Spidey-Spy | Scroll Controlled Video</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0c;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c5221f;
+      border-radius: 10px;
+    }
+
+    /* video background container - SCRUB VIDEO (scroll controlled) */
+    .video-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+    .video-wrapper video {
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+    /* dark overlay for readability */
+    .overlay-dark {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 100%);
+      z-index: -1;
+    }
+
+    /* main content wrapper */
+    .site-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ========= NAVIGATION ========= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(5, 5, 10, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 100;
+      padding: 0.9rem 1rem;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      list-style: none;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      color: #eaeef2;
+      padding: 0.5rem 0.2rem;
+      transition: all 0.25s ease;
+      border-bottom: 2px solid transparent;
+      font-family: 'Inter', sans-serif;
+    }
+    .nav-links li a:hover {
+      color: #ff3b3b;
+      border-bottom-color: #ff3b3b;
+      text-shadow: 0 0 4px rgba(255, 50, 50, 0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+    .hero-logo svg {
+      width: 280px;
+      filter: drop-shadow(0 0 15px rgba(220, 40, 40, 0.5));
+    }
+    .hero-tagline {
+      font-size: 1.7rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #fff, #ffd0d0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 1.5rem 0 2rem;
+      text-align: center;
+    }
+    .btn-primary {
+      background: #c5221f;
+      padding: 0.9rem 2.2rem;
+      border-radius: 60px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      transition: 0.25s;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      box-shadow: 0 6px 14px rgba(197,34,31,0.3);
+    }
+    .btn-primary:hover {
+      background: #ff3a2f;
+      transform: translateY(-3px);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      display: inline-block;
+      background: linear-gradient(120deg, #fff, #e0e0e0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #c5221f;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: rgba(15, 15, 20, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 28px;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(220, 38, 38, 0.5);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+    }
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #ffc7c7;
+    }
+    .card p {
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    .gallery-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery-item {
+      background: #1f1f2a;
+      border-radius: 20px;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #333;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 600px;
+      margin-top: 1rem;
+    }
+    .contact-form input, .contact-form textarea {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 1rem;
+      border-radius: 24px;
+      font-family: 'Inter', sans-serif;
+      color: white;
+      font-size: 1rem;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #c5221f;
+    }
+    .contact-form button {
+      width: fit-content;
+      background: #c5221f;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .contact-form button:hover {
+      background: #e03a36;
+      transform: scale(1.02);
+    }
+
+    /* Scroll-jacking gallery */
+    .image-carousel-section {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #000000aa;
+      backdrop-filter: blur(2px);
+      border-top: 2px solid rgba(255,60,60,0.3);
+      border-bottom: 2px solid rgba(255,60,60,0.3);
+    }
+    .carousel-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-image {
+      position: absolute;
+      width: 80%;
+      max-width: 850px;
+      height: auto;
+      max-height: 70vh;
+      object-fit: cover;
+      border-radius: 32px;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.6), 0 0 0 3px rgba(197,34,31,0.3);
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    .carousel-image.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 10;
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 12%;
+      background: rgba(0,0,0,0.7);
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      backdrop-filter: blur(8px);
+      color: #ffc9c9;
+      font-weight: 600;
+      font-size: 1.2rem;
+      z-index: 20;
+      border-left: 3px solid #c5221f;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 5%;
+      font-size: 0.8rem;
+      color: #aaa;
+      background: rgba(0,0,0,0.5);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 2rem 1.2rem; }
+      .hero-tagline { font-size: 1.2rem; }
+      .carousel-image { width: 90%; }
+      .nav-links { gap: 0.8rem; }
+      .nav-links li a { font-size: 0.85rem; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- SCRUB VIDEO (Scroll Controlled) - Initially stopped, no autoplay -->
+<div class="video-wrapper">
+  <video id="scrubVideo" muted preload="auto" playsinline>
+    <source src="video/spidy-intro.mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
+</div>
+<div class="overlay-dark"></div>
+
+<div class="site-content">
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#seasons">Seasons</a></li>
+        <li><a href="#explore">Explore</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-logo">
+      <svg viewBox="0 0 400 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M80 50 L120 20 L160 50 L140 85 L100 80 L80 110 L60 80 L20 85 L0 50 L40 20 L80 50Z" fill="#C5221F" stroke="white" stroke-width="1.5"/>
+        <path d="M200 40 L230 20 L260 40 L250 70 L220 75 L200 95 L180 75 L150 70 L140 40 L170 20 L200 40Z" fill="#B91C1C" stroke="white" stroke-width="1.2"/>
+        <circle cx="200" cy="50" r="8" fill="white" stroke="#C5221F" stroke-width="1.5"/>
+        <path d="M280 110 L310 90 L340 110 L330 130 L300 135 L280 150 L260 135 L230 130 L220 110 L250 90 L280 110Z" fill="#C5221F" stroke="white" stroke-width="1"/>
+        <text x="155" y="150" font-family="Inter, sans-serif" font-weight="800" font-size="26" fill="white" letter-spacing="4">SPIDY-SPY</text>
+      </svg>
+    </div>
+    <div class="hero-tagline">“With Great Power Comes Great Responsibility.”</div>
+    <a href="#explore" class="btn-primary">Explore Now <i class="fas fa-arrow-right"></i></a>
+  </section>
+
+  <section id="about" class="container fade-up">
+    <h2 class="section-title">About The Legend</h2>
+    <div class="card-grid">
+      <div class="card"><h3><i class="fas fa-spider"></i> Origin Story</h3><p>Radioactive spider bite → Uncle Ben's wisdom → The iconic hero's creed defines Spider-Man's legacy.</p></div>
+      <div class="card"><h3><i class="fas fa-pen-fancy"></i> Creators</h3><p>Stan Lee & Steve Ditko debuted Spider-Man in Amazing Fantasy #15 (1962), changing comics forever.</p></div>
+      <div class="card"><h3><i class="fas fa-book-open"></i> Comic History</h3><p>Over 60 years of masterpieces: "The Night Gwen Stacy Died", "Spider-Verse", and endless adaptations.</p></div>
+    </div>
+  </section>
+
+  <section id="seasons" class="container fade-up">
+    <h2 class="section-title">TV & Animated Legacy</h2>
+    <div class="card-grid">
+      <div class="card"><h3>📺 1967 Classic</h3><p>The legendary theme song and campy charm.</p></div>
+      <div class="card"><h3>🕸️ 1994 Animated Series</h3><p>Deep storytelling & iconic Secret Wars.</p></div>
+      <div class="card"><h3>⚡ Spectacular Spider-Man (2008)</h3><p>Peak adaptation, beloved by fans.</p></div>
+      <div class="card"><h3>🌌 Spider-Verse Films</h3><p>Revolutionary animation, multiverse brilliance.</p></div>
+    </div>
+  </section>
+
+  <section id="explore" class="container fade-up">
+    <h2 class="section-title">Web of Exploration</h2>
+    <div class="card-grid">
+      <div class="card"><h3><i class="fas fa-film"></i> Movies</h3><p>Magire, Garfield, Holland — three iconic eras + No Way Home.</p></div>
+      <div class="card"><h3><i class="fas fa-skull"></i> Villains</h3><p>Venom, Green Goblin, Doc Ock, Mysterio, Kraven.</p></div>
+      <div class="card"><h3><i class="fas fa-globe-asia"></i> Global Adaptations</h3><p>Japanese Spider-Man (Leopardon) & Pavitr Prabhakar.</p></div>
+      <div class="card"><h3><i class="fas fa-gamepad"></i> Games</h3><p>Insomniac's Marvel's Spider-Man series, classics.</p></div>
+    </div>
+  </section>
+
+  <section id="gallery" class="container fade-up">
+    <h2 class="section-title">Visual Vault</h2>
+    <div class="card">
+      <h3>🖼️ Posters & Fan Art</h3>
+      <div class="gallery-mini">
+        <span class="gallery-item"><i class="fas fa-palette"></i> Fan Art Gallery</span>
+        <span class="gallery-item"><i class="fas fa-image"></i> Posters</span>
+        <span class="gallery-item"><i class="fas fa-video"></i> Clips</span>
+      </div>
+      <p style="margin-top:1rem;">⚡ Community tributes, wallpapers, and legendary covers — be part of the Spidey fandom.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="container fade-up">
+    <h2 class="section-title">Web-Head Connection</h2>
+    <div class="card" style="max-width:700px">
+      <p>Share art, feedback, or suggestions — we swing into action! 🕸️</p>
+      <form id="fanForm" class="contact-form">
+        <input type="text" placeholder="Your name / Alias" id="fanName">
+        <input type="email" placeholder="Email (optional)" id="fanEmail">
+        <textarea rows="3" placeholder="Your message, art idea, or feedback..." id="fanMsg"></textarea>
+        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+      </form>
+      <div id="formFeedback" style="margin-top: 1rem;"></div>
+    </div>
+  </section>
+
+  <!-- Scroll-Jacking Gallery Section -->
+  <div class="image-carousel-section" id="scrollGallery">
+    <div class="carousel-container">
+      <img src="https://placehold.co/900x500/1a1a2e/red?text=SPIDER-MAN+1" class="carousel-image" id="img1">
+      <img src="https://placehold.co/900x500/16213e/c5221f?text=MILES+MORALES" class="carousel-image" id="img2">
+      <img src="https://placehold.co/900x500/0f3460/e94560?text=SPIDER-VERSE" class="carousel-image" id="img3">
+      <img src="https://placehold.co/900x500/2c3e50/e74c3c?text=SYMBIOTE+SUIT" class="carousel-image" id="img4">
+      <img src="https://placehold.co/900x500/1e1e2f/ff4d4d?text=GWEN+STACY" class="carousel-image" id="img5">
+      <div class="carousel-caption" id="carouselCaption">🕸️ The Amazing Spider-Verse</div>
+      <div class="scroll-hint">✨ Scroll → images change ✨</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Spidey-Spy — With Great Power Comes Great Responsibility. 🕷️ All fan love to the Web-Slinger.</p>
+  </footer>
+</div>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ========== SCROLL CONTROLLED VIDEO SCRUBBING ==========
+  const video = document.getElementById('scrubVideo');
+  let scrollTimeout = null;
+
+  function updateVideoFrame(progress) {
+    if (!video.duration || isNaN(video.duration)) return;
+    let targetTime = progress * video.duration;
+    targetTime = Math.min(targetTime, video.duration - 0.01);
+    targetTime = Math.max(targetTime, 0);
+    video.currentTime = targetTime;
+  }
+
+  function initScrollScrub() {
+    if (!video.duration || isNaN(video.duration)) return;
+    
+    video.pause();
+    video.currentTime = 0;
+    
+    // Main ScrollTrigger for video scrubbing
+    ScrollTrigger.create({
+      trigger: document.body,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 2.5,  // Smooth buttery scrub
+      onUpdate: (self) => {
+        let progress = self.progress;
+        updateVideoFrame(progress);
+      },
+      invalidateOnRefresh: true
+    });
+    
+    // Ensure video stops exactly where scroll stops
+    window.addEventListener('scroll', () => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (video.duration) {
+          const scrollTop = window.scrollY;
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          let currentProgress = maxScroll > 0 ? scrollTop / maxScroll : 0;
+          currentProgress = Math.min(Math.max(currentProgress, 0), 1);
+          updateVideoFrame(currentProgress);
+        }
+      }, 50);
+    });
+  }
+
+  video.addEventListener('loadedmetadata', initScrollScrub);
+  if (video.readyState >= 1 && video.duration) initScrollScrub();
+
+  // ========== SMOOTH SCROLLING FOR NAV LINKS ==========
+  document.querySelectorAll('.nav-links a, .btn-primary').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const targetElem = document.querySelector(href);
+        if (targetElem) {
+          gsap.to(window, {
+            duration: 1.2,
+            scrollTo: { y: targetElem, offsetY: 70 },
+            ease: "power3.inOut"
+          });
+        }
+      }
+    });
+  });
+
+  // ========== FADE-UP ANIMATION ==========
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeElements.forEach(el => fadeObserver.observe(el));
+
+  // ========== CONTACT FORM ==========
+  const form = document.getElementById('fanForm');
+  const feedbackDiv = document.getElementById('formFeedback');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('fanName').value.trim();
+      const msg = document.getElementById('fanMsg').value.trim();
+      if (!name || !msg) {
+        feedbackDiv.innerHTML = '<span style="color:#ff8888;">⚠️ Name and message required!</span>';
+        return;
+      }
+      feedbackDiv.innerHTML = '<span style="color:#aaffaa;">✅ Thanks! Your message swings to our web 🕸️</span>';
+      form.reset();
+      setTimeout(() => feedbackDiv.innerHTML = '', 3500);
+    });
+  }
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+document.addEventListener("click", (e) => {
+
+  const cx = e.clientX;
+  const cy = e.clientY;
+
+  const total = 12;       
+  const radiusLevels = [60, 110, 160];
+
+  let points = [];
+
+  // 🔥 SPOKES (same smooth)
+  for (let i = 0; i < total; i++) {
+
+    const angle = (i / total) * Math.PI * 2;
+    points[i] = [];
+
+    for (let r = 0; r < radiusLevels.length; r++) {
+
+      const radius = radiusLevels[r];
+
+      const x = cx + Math.cos(angle) * radius;
+      const y = cy + Math.sin(angle) * radius;
+
+      points[i].push({ x, y });
+
+      const line = document.createElement("div");
+      line.style.position = "absolute";
+      line.style.width = "2px";
+      line.style.height = "0px";
+      line.style.background = "white";
+      line.style.left = cx + "px";
+      line.style.top = cy + "px";
+      line.style.transformOrigin = "top";
+
+      document.body.appendChild(line);
+
+      line.style.transform = `rotate(${angle}rad)`;
+
+      gsap.to(line, {
+        height: radius,
+        duration: 0.2,
+        ease: "power2.out"
+      });
+    }
+  }
+
+  // 🔥 FAST CIRCULAR CONNECTIONS
+  for (let r = 0; r < radiusLevels.length; r++) {
+
+    for (let i = 0; i < total; i++) {
+
+      const next = (i + 1) % total;
+
+      const p1 = points[i][r];
+      const p2 = points[next][r];
+
+      const segment = document.createElement("div");
+
+      const dx = p2.x - p1.x;
+      const dy = p2.y - p1.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      const angle = Math.atan2(dy, dx);
+
+      segment.style.position = "absolute";
+      segment.style.width = "0px";
+      segment.style.height = "2px";
+      segment.style.background = "white";
+      segment.style.left = p1.x + "px";
+      segment.style.top = p1.y + "px";
+      segment.style.transformOrigin = "left";
+
+      document.body.appendChild(segment);
+
+      segment.style.transform = `rotate(${angle}rad)`;
+
+      // ⚡ FAST ANIMATION
+      gsap.to(segment, {
+        width: dist,
+        duration: 0.1,            // 👈 fast
+        delay: 0.01 + r * 0.01,   // 👈 almost instant
+        ease: "power1.out"
+      });
+    }
+  }
+
+  // 🔥 REMOVE AFTER TIME
+  setTimeout(() => {
+    document.querySelectorAll("div").forEach(el => {
+      gsap.to(el, {
+        opacity: 0,
+        duration: 0.2,
+        onComplete: () => el.remove()
+      });
+    });
+  }, 300);
+
+});
+</script>
+
+</body>
+</html>

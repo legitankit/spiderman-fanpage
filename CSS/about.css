@@ -1,0 +1,70 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* SECTION */
+.about-spidey {
+    min-height: 100vh;
+    padding: 80px;
+}
+
+/* CONTAINER */
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+/* LEFT */
+.about-left {
+    width: 50%;
+}
+
+.main-title {
+    font-size: 50px;
+    margin-bottom: 30px;
+    color: red;
+}
+
+.block {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.block h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.block p {
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.block ul {
+    padding-left: 20px;
+    color: #ccc;
+}
+
+/* RIGHT */
+.about-right {
+    width: 45%;
+    overflow: hidden;
+}
+
+.about-right img {
+    width: 100%;
+    border-radius: 20px;
+    transform: scale(1.3);
+}

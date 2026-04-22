@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smooth Perfect Return</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+body {
+    margin: 0;
+    background: #111;
+    font-family: Arial;
+    color: white;
+}
+
+/* Layout FIXED */
+.container {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* 👈 image + text */
+    grid-template-rows: 240px 240px 240px;
+    padding: 40px;
+    gap: 10px; /* 👈 gap kam */
+}
+
+/* Image */
+.box {
+    width: 320px;
+    height: 190px;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text */
+.text {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+/* Positions */
+.img1 { grid-row: 1; grid-column: 1; }
+.txt1 { grid-row: 1; grid-column: 2; }
+
+.img2 { grid-row: 2; grid-column: 2; }
+.txt2 { grid-row: 2; grid-column: 1; text-align: right; justify-content: flex-end; } 
+
+.img3 { grid-row: 3; grid-column: 1; }
+.txt3 { grid-row: 3; grid-column: 2; }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 1st -->
+    <div class="box img1" onclick="toggleImage(this)">
+        <img src="https://picsum.photos/800/600?1">
+    </div>
+    <div class="text txt1">
+        This is a beautiful moment captured in time, showing calmness and depth.
+        Every detail feels alive and creates a peaceful immersive experience.
+    </div>
+
+    <!-- 2nd -->
+    <div class="text txt2">
+        Sometimes simple visuals carry strong emotions.
+        This frame tells a silent story filled with meaning.
+    </div>
+    <div class="box img2" onclick="toggleImage(this)">
+        <img src="https://picsum.photos/800/600?2">
+    </div>
+
+    <!-- 3rd -->
+    <div class="box img3" onclick="toggleImage(this)">
+        <img src="https://picsum.photos/800/600?3">
+    </div>
+    <div class="text txt3">
+        A random yet eye-catching scene that creates curiosity.
+        It invites you to explore beyond what you see.
+    </div>
+
+</div>
+
+<script>
+let active = null;
+
+function toggleImage(el) {
+
+    if (active === el) {
+        gsap.to(el, {
+            duration: 0.7,
+            top: el.dataset.top,
+            left: el.dataset.left,
+            width: 320,
+            height: 190,
+            ease: "power3.inOut",
+            onComplete: () => {
+                el.style.position = "static";
+                el.style.zIndex = 1;
+            }
+        });
+        active = null;
+        return;
+    }
+
+    if (active) toggleImage(active);
+
+    let rect = el.getBoundingClientRect();
+    el.dataset.top = rect.top + "px";
+    el.dataset.left = rect.left + "px";
+
+    el.style.position = "fixed";
+    el.style.top = rect.top + "px";
+    el.style.left = rect.left + "px";
+    el.style.zIndex = 999;
+
+    gsap.to(el, {
+        duration: 0.7,
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        ease: "power3.inOut"
+    });
+
+    active = el;
+}
+</script>
+
+</body>
+</html>
