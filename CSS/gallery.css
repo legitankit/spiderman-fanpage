@@ -472,6 +472,7 @@ nav a:hover {
     width: 300px;
     height: 300px;
 
+
     transform-style: preserve-3d;
     transition: transform 0.7s ease;
 }
@@ -511,40 +512,19 @@ nav a:hover {
     padding: 20px;
 
     transform: rotateY(180deg);
+
+    /* border-radius: 40px; */
+    /* background: rgba(0, 0, 0, 0.3); */
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 
 
 .flip-card:hover {
     transform: rotateY(180deg);
+    border-radius: 40px;
 }
-
-
-
-
-
-/* #section4 {
-    position: relative;
-    overflow: hidden;
-}/*
-
-
-
-/* SPLIDE ABOVE BACKGROUND */
-/* #section4 > .splide {
-    position: relative;
-    z-index: 1;
-} */
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Class for the prev arrow */
