@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradient Pattern</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.container{
+    width:100%;
+    min-height:100vh;
+
+    background-image:
+        radial-gradient(ellipse at center, black 30px, transparent 0),
+        linear-gradient(45deg,red,blue);
+
+    background-size: 50px 50px, cover;
+    background-repeat:repeat;
+}
+
+h1{
+    text-align:center;
+    padding-top:100px;
+    font-family:Arial, sans-serif;
+    color: blueviolet;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Gradient Pattern Demo</h1>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="48"
+     height="48"
+     viewBox="0 0 48 48">
+
+  <!-- Cursor Arrow -->
+  <path d="M8 4
+           L8 34
+           L15 27
+           L20 40
+           L25 38
+           L20 25
+           L30 25
+           Z"
+        fill="#ffffff"
+        stroke="#000000"
+        stroke-width="1.5"/>
+
+  <!-- Spider Body -->
+  <g transform="translate(26,10)">
+    <ellipse cx="0" cy="6" rx="4" ry="5" fill="#111"/>
+    <circle cx="0" cy="0" r="3" fill="#111"/>
+
+    <!-- Legs -->
+    <line x1="-3" y1="2" x2="-8" y2="-2" stroke="#111" stroke-width="1.2"/>
+    <line x1="-4" y1="5" x2="-10" y2="5" stroke="#111" stroke-width="1.2"/>
+    <line x1="-3" y1="8" x2="-8" y2="12" stroke="#111" stroke-width="1.2"/>
+
+    <line x1="3" y1="2" x2="8" y2="-2" stroke="#111" stroke-width="1.2"/>
+    <line x1="4" y1="5" x2="10" y2="5" stroke="#111" stroke-width="1.2"/>
+    <line x1="3" y1="8" x2="8" y2="12" stroke="#111" stroke-width="1.2"/>
+  </g>
+
+  <!-- Small Web -->
+  <g opacity="0.6">
+    <line x1="34" y1="2" x2="34" y2="14" stroke="#888" stroke-width="0.8"/>
+    <path d="M30 6 Q34 3 38 6" fill="none" stroke="#888" stroke-width="0.5"/>
+    <path d="M29 9 Q34 5 39 9" fill="none" stroke="#888" stroke-width="0.5"/>
+    <path d="M30 12 Q34 8 38 12" fill="none" stroke="#888" stroke-width="0.5"/>
+  </g>
+
+</svg>

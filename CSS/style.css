@@ -9,11 +9,12 @@
 /* STRICT SYSTEM CURSOR OFF */
 html,
 body {
-    cursor: url("../gallery/cursorlogo.png") 24 14, none !important;
+    cursor: url("../cursor/cursorlogo.png") 24 14, none !important;
+    overflow-x: hidden;
 }
 
 /* FORCE EVERY ELEMENT */
-*,
+/* *,
 a,
 a:hover,
 a:active,
@@ -27,7 +28,7 @@ button:hover,
 button:active,
 button:focus {
     cursor: url("../gallery/cursorlogo.png") 24 14, none !important;
-}
+} */
 
 /* Chrome, Edge, Safari scrollbar*/
 ::-webkit-scrollbar {
@@ -77,46 +78,10 @@ body {
     overflow-x: hidden;
 }
 
-/* Navbar */
-nav {
-    position: fixed;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    z-index: 10;
-}
-
-nav ul {
-    list-style: none;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    position: relative;
-}
-
-/* Hover underline */
-nav ul li a::after {
-    content: "";
-    width: 0%;
-    height: 2px;
-    background: red;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover::after {
+video {
     width: 100%;
 }
+
 
 /* background video */
 #bg-video {
@@ -144,14 +109,181 @@ nav ul li a:hover::after {
 
 /* web on click z-index css*/
 .web-line {
-  z-index: 9999;
-  pointer-events: none; /* clicks block na kare */
+    z-index: 9999;
+    pointer-events: none;
+    /* clicks block na kare */
+}
+
+/* Navbar */
+
+nav #hamburger,
+#mobile-menu {
+    display: none;
+}
+
+.wrapper-nav {
+    display: grid;
+    place-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.wrapper-nav.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 
+/* .wrapper-nav {
+    display: grid;
+    place-items: center;
 
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
 
+.wrapper-nav:hover .wrapper-nav {
+    opacity: 1;
+    visibility: visible;
+} */
 
+#menu {
+    height: 55px;
+    width: 70%;
+    margin: 15px;
+    border: 1px solid rgb(115, 115, 115);
+    border-radius: 50px;
+    z-index: 999;
+    background: rgba(145, 144, 144, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+#menu a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    padding: 6px 12px;
+}
+
+/* #menu a::before:hover {
+    content: '';
+    position: absolute;
+    border: 1px solid red;
+} */
+
+#menu a:hover {
+    border: 1px solid red;
+    border-radius: 20px;
+    /* transition: 0.5s ease; */
+}
+
+#mobile-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+
+    padding: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+
+    transition: .4s ease;
+
+    box-shadow:
+        0 8px 32px rgba(255, 0, 0, .25),
+        inset 0 0 20px rgba(255, 255, 255, .05);
+}
+
+/* Same element jiske paas dono hain id and class .. why did so? -> Specificity aur safety ke liye  */
+#mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#close {
+    text-align: right;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.menu-links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    padding: 14px 18px;
+    border: 0.1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.menu-links a:hover {
+    color: white;
+
+    /* Red Glass Effect */
+    background: rgba(255, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 0, 0);
+
+    transform: translateX(10px);
+
+    box-shadow:
+        0 8px 32px rgba(255, 0, 0, 0.7),
+        inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width:570px) {
+
+    #menu {
+        display: none;
+    }
+
+    nav #hamburger {
+        display: block;
+        font-size: 30px;
+        top: 10px;
+        left: 10px;
+        position: fixed;
+        z-index: 9;
+    }
+
+    #mobile-menu {
+        display: block;
+        z-index: 99;
+    }
+}
 
 /* FIRST SECTION HERO SECTION Hero */
 .first-section {
@@ -161,14 +293,58 @@ nav ul li a:hover::after {
     justify-content: center;
     align-items: center;
     text-align: center;
-
     animation: fadeIn 2s ease-in;
 }
 
 .first-section h1 {
+    position: relative;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 60px;
+    font-weight: 900;
+    transform: scaleY(1.3);
+    -webkit-text-stroke-color: #f21e1e;
+    -webkit-text-stroke-width: 1.5px;
     letter-spacing: 5px;
+    z-index: 9;
 }
+
+.first-section h1::before {
+    content: attr(data-text1);
+    position: absolute;
+    color: #f21e1e;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.first-section h1:hover {
+    -webkit-text-stroke-color: transparent;
+    transition: 0.5s ease;
+}
+
+.first-section h1::after {
+    content: attr(data-text2);
+    position: absolute;
+    color: #f21e1e;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.first-section h1:hover::before {
+    z-index: 1;
+    transform: scale(5);
+    transition: 0.7s ease;
+    opacity: 0;
+}
+
+.first-section h1:hover::after {
+    z-index: 1;
+    transform: scale(3);
+    transition: 1.2s ease;
+    opacity: 0;
+}
+
 
 .first-section p {
     margin: 20px 0;
@@ -184,18 +360,31 @@ nav ul li a:hover::after {
 .first-section a {
     display: inline-block;
     padding: 10px 20px;
-    background: #ea1e1e;
+    background: rgba(234, 30, 30, 0.8);
     color: white;
     text-decoration: none;
     border-radius: 999px;
+    z-index: 19;
 }
 
+@media (max-width:570px) {
+    .first-section h1 {
+        font-size: 50px;
+        margin: 0 5px;
+    }
+}
 
+#hamburger-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 25px;
+}
 
-
-
-
-
+#hamburger-icon:hover {
+    color: #f30606;
+    filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.9));
+}
 
 
 /* ===== SECOND SECTION (SPIDEY SNAP CARDS HAI ) ===== */
@@ -282,12 +471,6 @@ nav ul li a:hover::after {
 
 
 
-
-
-
-
-
-
 /* third section LEFT TO RIGHT SPIDERMAN TEXT */
 #page4 {
     min-height: 100vh;
@@ -310,7 +493,6 @@ nav ul li a:hover::after {
     -webkit-text-stroke: 2px #ff0000;
 }
 
-
 .third-section .redtextatmiddle {
     color: #ff0000;
     -webkit-text-stroke: 2px white;
@@ -320,10 +502,10 @@ nav ul li a:hover::after {
     color: white;
 }
 
-
-
-
-
+.third-section .blueatmiddle {
+    color: transparent;
+    -webkit-text-stroke: 2px #194de9;
+}
 
 
 
@@ -340,12 +522,11 @@ nav ul li a:hover::after {
     background-color: rgb(19, 106, 134);
 }
 
-
-
-
-
-
-
+@media (max-width:570px) {
+    #string svg {
+        display: none;
+    }
+}
 
 
 
@@ -449,7 +630,8 @@ nav ul li a:hover::after {
         font-size: 16px;
         line-height: 1.5;
         padding: 5px 0 15px 0;
-        text-align: left;       /* reset alignment for mobile */
+        text-align: left;
+        /* reset alignment for mobile */
         justify-content: flex-start;
     }
 
@@ -526,17 +708,6 @@ nav ul li a:hover::after {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* Animation */
 @keyframes fadeIn {
     from {
@@ -552,6 +723,20 @@ nav ul li a:hover::after {
 
 /* Responsive */
 @media(max-width: 768px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .spidey-title span {
+        font-size: 40px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+
+@media(max-width: 570) {
     .hero h1 {
         font-size: 40px;
     }
@@ -581,9 +766,11 @@ nav ul li a:hover::after {
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;  /* ya remove kar de */
+    justify-content: flex-start;
+    /* ya remove kar de */
     padding: 60px 50px;
-    gap: 10px;  /* apne hisaab se control */
+    gap: 10px;
+    /* apne hisaab se control */
 }
 
 
@@ -632,17 +819,30 @@ nav ul li a:hover::after {
     gap: 20px;
 }
 
+
+
+
+
 /* BOTTOM */
+
+/* 👇 ye magic hai */
+
+.footer-bottom-wrapper {
+    position: relative;
+    margin-top: auto;
+    /* 🔥 pushes it to bottom */
+    text-align: center;
+}
 
 .footer-bottom {
     text-align: center;
     padding-top: 15px;
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-bottom p {
     font-size: 14px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-bottom p:hover {
@@ -665,13 +865,13 @@ nav ul li a:hover::after {
 
 /* tagline-footer */
 
-.tagline-footer{
+.tagline-footer {
     text-align: center;
 }
 
 .tagline-footer p {
     font-size: 14px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* ICON */
@@ -685,15 +885,81 @@ nav ul li a:hover::after {
     color: red;
 }
 
-/* 👇 ye magic hai */
-
-.footer-bottom-wrapper {
-    margin-top: auto;   /* 🔥 pushes it to bottom */
-    text-align: center;
-}
-
 /* gap control */
 
 .footer-bottom-wrapper p {
-    margin: 8px 0;
+    margin: 4px 0;
+}
+
+.footer-bottom-wrapper>p {
+    font-size: x-small;
+    color: grey;
+    position: absolute;
+    /* margin: 8px 0; */
+}
+
+
+
+/* footer responsive */
+@media (max-width: 1024px) {
+    .spidey-footer {
+        padding: 50px 30px;
+        height: auto;
+    }
+
+    .spidey-footer .top {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .footer-right {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .spidey-footer {
+        padding: 30px 20px;
+    }
+
+    .footer-left h2 {
+        font-size: 22px;
+    }
+
+    .footer-left p {
+        font-size: 12px;
+    }
+
+    .tagline {
+        font-size: 12px;
+    }
+
+    .icon {
+        font-size: 28px;
+    }
+
+    .footer-right {
+        gap: 15px;
+    }
+
+    .footer-bottom p,
+    .tagline-footer p {
+        font-size: 12px;
+    }
+
+    .footer-bottom-wrapper>p {
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding-bottom: 10px;
+    }
 }

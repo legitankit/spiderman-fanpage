@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Making of Spider-Man</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Background */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left,#ff000035,transparent 40%),
+    radial-gradient(circle at bottom right,#ff000035,transparent 40%);
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:50px 50px;
+    z-index:-1;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-content{
+    max-width:1000px;
+}
+
+.hero h1{
+    font-size:clamp(3rem,8vw,7rem);
+    text-transform:uppercase;
+    color:#fff;
+    letter-spacing:5px;
+    text-shadow:
+    0 0 15px #ff0000,
+    0 0 40px #ff0000;
+}
+
+.hero h2{
+    margin-top:15px;
+    color:#ff3c3c;
+    font-weight:500;
+}
+
+.quote{
+    margin-top:40px;
+    padding:30px;
+    border:2px solid #ff2b2b;
+    border-radius:20px;
+    background:#111;
+    backdrop-filter:blur(15px);
+    line-height:2;
+    font-size:1.15rem;
+    box-shadow:
+    0 0 25px rgba(255,0,0,.35);
+}
+
+/* Sections */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding-bottom:100px;
+}
+
+.section{
+    margin:80px 0;
+}
+
+.card{
+    background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.05),
+    rgba(255,0,0,.08)
+    );
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:25px;
+    padding:35px;
+    backdrop-filter:blur(12px);
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#ff000020;
+    border-radius:50%;
+    top:-120px;
+    right:-120px;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+    0 0 30px rgba(255,0,0,.25);
+}
+
+.card h2{
+    color:#ff4444;
+    margin-bottom:20px;
+    font-size:2rem;
+}
+
+.card h3{
+    color:white;
+    margin:20px 0 10px;
+}
+
+.card p{
+    color:#d9d9d9;
+    line-height:1.9;
+    margin-bottom:12px;
+}
+
+.highlight{
+    color:#ff4d4d;
+    font-weight:700;
+}
+
+.impact{
+    margin-top:20px;
+    border-left:4px solid red;
+    padding-left:20px;
+}
+
+.impact h4{
+    color:#fff;
+    margin-bottom:10px;
+}
+
+/* Final */
+
+.final{
+    margin-top:100px;
+    text-align:center;
+    padding:60px 30px;
+    border-radius:30px;
+    background:
+    linear-gradient(
+    135deg,
+    rgba(255,0,0,.15),
+    rgba(255,255,255,.05)
+    );
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.final h2{
+    color:#ff3c3c;
+    margin-bottom:25px;
+    font-size:3rem;
+}
+
+.final p{
+    max-width:900px;
+    margin:auto;
+    line-height:2;
+    color:#ececec;
+}
+
+.final-quote{
+    margin-top:40px;
+    font-size:1.5rem;
+    font-weight:700;
+    color:white;
+    text-shadow:0 0 20px red;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:3rem;
+}
+
+.card{
+    padding:25px;
+}
+
+.card h2{
+    font-size:1.6rem;
+}
+
+.final h2{
+    font-size:2rem;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>SPIDER-MAN</h1>
+
+<h2>The Hero Behind The Mask</h2>
+
+<div class="quote">
+Born from tragedy, forged by responsibility,<br>
+Spider-Man stands where fear meets courage.<br>
+Behind the mask is an ordinary soul carrying extraordinary responsibility.<br>
+Spider-Man was never about power—<br>
+It was always about doing what's right and carrying the responsibility that comes with the powers he was given.
+</div>
+
+</div>
+
+</section>
+
+<div class="container">
+
+<!-- 1 -->
+
+<section class="section">
+<div class="card">
+
+<h2>1. Born From Tragedy</h2>
+
+<p>
+Peter Parker gained incredible powers after being bitten by a radioactive spider.
+But powers alone did not make him Spider-Man.
+</p>
+
+<p>
+At first, Peter became selfish. He used his powers for personal gain,
+money, fame and recognition.
+</p>
+
+<p>
+One day he had the chance to stop a thief,
+but he chose not to.
+</p>
+
+<p>
+He believed:
+<span class="highlight">
+"That's not my problem."
+</span>
+</p>
+
+<p>
+Later, that same thief murdered Uncle Ben.
+</p>
+
+<p>
+In that moment Peter realized that his selfish choice had consequences.
+</p>
+
+<div class="impact">
+<h4>Impact</h4>
+<p>
+The death of Uncle Ben shattered Peter's old mindset.
+His guilt became the foundation of his hero journey.
+Spider-Man was not born from a spider bite.
+Spider-Man was born from the lesson learned through tragedy.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- 2 -->
+
+<section class="section">
+<div class="card">
+
+<h2>2. Forged By Responsibility</h2>
+
+<p>
+After Uncle Ben's death, Peter understood a truth that would define his entire life:
+</p>
+
+<p class="highlight">
+"With Great Power Comes Great Responsibility."
+</p>
+
+<p>
+Responsibility became heavier than the powers themselves.
+Every decision now carried consequences.
+</p>
+
+<div class="impact">
+<h4>Impact</h4>
+
+<p>
+Peter stopped asking:
+<span class="highlight">"What do I want?"</span>
+and started asking:
+<span class="highlight">"What is right?"</span>
+</p>
+
+<p>
+Responsibility transformed a selfish teenager into a true hero.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<!-- 3 -->
+
+<section class="section">
+<div class="card">
+
+<h2>3. Where Fear Meets Courage</h2>
+
+<p>
+Spider-Man is not fearless.
+</p>
+
+<p>
+He fears losing people he loves.
+He fears failure.
+He fears making mistakes.
+</p>
+
+<p>
+Yet he continues fighting.
+</p>
+
+<div class="impact">
+
+<h4>Impact</h4>
+
+<p>
+Courage is not the absence of fear.
+Courage is acting despite fear.
+Spider-Man represents that choice every day.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<!-- 4 -->
+
+<section class="section">
+<div class="card">
+
+<h2>4. Behind The Mask</h2>
+
+<p>
+People see Spider-Man as a superhero.
+</p>
+
+<p>
+Behind the mask is Peter Parker:
+a student,
+a friend,
+a nephew,
+a normal human being.
+</p>
+
+<p>
+He struggles with money,
+relationships,
+loss,
+and failure.
+</p>
+
+<div class="impact">
+
+<h4>Impact</h4>
+
+<p>
+What makes Spider-Man relatable is not his powers.
+It is his humanity.
+He faces the same emotional struggles ordinary people face.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<!-- 5 -->
+
+<section class="section">
+<div class="card">
+
+<h2>5. Extraordinary Responsibility</h2>
+
+<p>
+Peter Parker is ordinary.
+His responsibility is not.
+</p>
+
+<p>
+Lives depend on his actions.
+Every decision matters.
+</p>
+
+<p>
+He sacrifices personal happiness to protect others.
+</p>
+
+<div class="impact">
+
+<h4>Impact</h4>
+
+<p>
+His responsibility often costs him friendships,
+relationships,
+and opportunities.
+Yet he continues carrying that burden.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<!-- 6 -->
+
+<section class="section">
+<div class="card">
+
+<h2>6. Never About Power</h2>
+
+<p>
+Marvel has heroes far stronger than Spider-Man.
+</p>
+
+<p>
+Strength never defined him.
+</p>
+
+<p>
+His greatness comes from how he chooses to use his power.
+</p>
+
+<div class="impact">
+
+<h4>Impact</h4>
+
+<p>
+Power can create heroes or villains.
+Spider-Man became a hero because of his choices,
+not because of his abilities.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<!-- 7 -->
+
+<section class="section">
+<div class="card">
+
+<h2>7. Doing What's Right</h2>
+
+<p>
+The easiest choice is not always the right choice.
+</p>
+
+<p>
+Spider-Man repeatedly chooses what is right,
+even when it hurts him personally.
+</p>
+
+<div class="impact">
+
+<h4>Impact</h4>
+
+<p>
+His actions prove that true heroism comes from character,
+not power.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<!-- 8 -->
+
+<section class="section">
+<div class="card">
+
+<h2>8. Responsibility That Comes With Power</h2>
+
+<p>
+Peter never asked for his powers.
+</p>
+
+<p>
+But once he received them,
+he accepted the responsibility that came with them.
+</p>
+
+<div class="impact">
+
+<h4>Impact</h4>
+
+<p>
+Instead of saying
+<span class="highlight">
+"Not my problem."
+</span>
+
+he chose to say
+
+<span class="highlight">
+"If I can help, I should."
+</span>
+</p>
+
+<p>
+That decision became the heart of Spider-Man.
+</p>
+
+</div>
+
+</div>
+</section>
+
+<div class="final">
+
+<h2>The Real Meaning Of Spider-Man</h2>
+
+<p>
+Spider-Man is the story of a boy who was once selfish,
+who learned through tragedy,
+who transformed guilt into purpose,
+fear into courage,
+and power into responsibility.
+</p>
+
+<p>
+His greatest strength is not his webs,
+his agility,
+or his powers.
+His greatest strength is choosing to do what is right,
+even when it is difficult.
+</p>
+
+<div class="final-quote">
+"When given power, he chose responsibility."
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

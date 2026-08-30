@@ -1,0 +1,3 @@
+home me hamburger hover color 
+
+about me image wale div ke bottom pe text fix nhi ho rha 

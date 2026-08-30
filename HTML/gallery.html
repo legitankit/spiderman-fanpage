@@ -1,0 +1,964 @@
+<!-- about template (about.html) - general syntax of html page-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Spider-Man</title>
+
+    <!-- SEO -->
+    <meta name="keywords"
+        content="About Spider-Man, Spider-Man Universe, Peter Parker, Marvel Hero, Spider-Verse, Spider-Man Fan Page">
+
+    <meta name="description"
+        content="Learn more about the Spider-Man universe, its legendary heroes, powerful villains, and the inspiration behind this fan-made Spider-Man experience.">
+
+    <meta name="author" content="Ankit Raj">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../gallery/spidylogo.png">
+
+    <!-- your website link-->
+    <link rel="canonical" href="https://yourwebsite.com/about.html">
+
+    <!-- splide js css cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+
+    <!-- =========================
+            OPEN GRAPH
+    ========================= -->
+
+    <meta property="og:type" content="website">
+
+    <!-- your website link-->
+    <meta property="og:url" content="https://yourwebsite.com/about.html">
+
+    <meta property="og:title" content="About Spider-Man Universe | Heroes, Stories & Spider-Verse">
+
+    <meta property="og:description"
+        content="Discover the story behind the Spider-Man universe and explore iconic characters, legendary moments, and Spider-Verse adventures.">
+
+    <!-- your image link-->
+    <meta property="og:image" content="https://yourwebsite.com/images/about-spiderman.jpg">
+
+    <meta property="og:image:alt" content="Spider-Man standing in cinematic Spider-Verse style">
+
+    <meta property="og:image:type" content="image/jpeg">
+
+    <meta property="og:site_name" content="Spider-Man Universe">
+    <meta property="og:locale" content="en_US">
+
+    <!-- =========================
+            TWITTER
+    ========================= -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="About Spider-Man Universe | Spider-Verse Journey">
+
+    <meta name="twitter:description"
+        content="Explore the inspiration, characters, and legendary stories of the Spider-Man universe.">
+
+    <!-- your website link-->
+    <meta name="twitter:url" content="https://yourwebsite.com/about.html">
+
+    <!-- your image link-->
+    <meta name="twitter:image" content="https://yourwebsite.com/images/about-spiderman.jpg">
+
+    <meta name="twitter:image:alt" content="Spider-Man cinematic multiverse artwork">
+
+    <!-- =========================
+            JSON-LD
+    ========================= -->
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Spider-Man Universe",
+
+  "url": "https://yourwebsite.com/about.html",
+
+  "description": "A fan-made page dedicated to Spider-Man stories, characters, and Spider-Verse adventures.",
+
+  "author": {
+    "@type": "Person",
+    "name": "Ankit Raj"
+  }
+}
+</script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../CSS/gallery.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <!-- iconify script -->
+    <script src="https://code.iconify.design/iconify-icon/3.0.2/iconify-icon.min.js"></script>
+    <!-- animate css link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- wow js css and js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/css/libs/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js"></script>
+
+    <style>
+        /* necessary internal css for swiper crousal */
+        .spidey-carousel .swiper-button-prev {
+            left: -10px;
+        }
+
+        .spidey-carousel .swiper-button-next {
+            right: -10px;
+        }
+
+        /* Navigation */
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: red;
+        }
+
+        /* Pagination */
+
+        .swiper-wrapper {
+            margin-bottom: 50px;
+        }
+
+        .swiper-pagination-bullet {
+            background: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <nav>
+            <a href="../HTML/index.html">
+                <iconify-icon icon="material-symbols-light:other-houses"></iconify-icon>
+            </a>
+        </nav>
+
+        <!-- swiper js : coverflow effect applied -->
+        <section class="section1">
+
+            <h1 class="spidey-title pulse nimate__animated animate__flash">THE SPIDER-MAN <span
+                    class="archives">ARCHIVES</span></h1>
+
+            <div class="swiper spidey-carousel">
+
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <img src="../gallery/spidy13.jpg" alt="Spider-Man">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="../gallery/spidy21.jpg" alt="Spider-Man">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="../gallery/spidy25.png" alt="Spider-Man">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="../gallery/spidy10.jpg" alt="Spider-Man">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="../gallery/spidy24.jpg" alt="Spider-Man">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="../gallery/spidy27.jpg" alt="Spider-Man">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="../gallery/spidy14.jpg" alt="Spider-Man">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="../gallery/spidy19.png" alt="Spider-Man">
+                    </div>
+
+                </div>
+
+                <!-- Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+
+            </div>
+
+        </section>
+
+
+        <section id="section2">
+
+            <canvas id="timelineCanvas"></canvas>
+            <p id="punchlinesec2"><span id="punchlinesec2span1">The gallery collection</span> - <span>THREADS OF
+                    FATE</span></p>
+
+        </section>
+
+
+        <section id="section3">
+
+            <p class="gallery-description">
+
+                <span class="wow animate__animated animate__fadeInLeft">Meet</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.05s">the</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.10s">faces</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.15s">of</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.20s">the</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.25s">Spider-Man</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.30s">universe,</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.35s">from</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.40s">legendary</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.45s">heroes</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.50s">and</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.55s">dangerous</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.60s">villains</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.65s">to</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.70s">loyal</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.75s">friends,</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.80s">powerful</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.85s">enemies,</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.90s">iconic</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="0.95s">suits,</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="1s">and</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="1.05s">unforgettable</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="1.10s">moments.</span>
+
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.15s">Explore</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.20s">the</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.25s">characters</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.30s">and</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.35s">stories</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.40s">that</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.45s">have</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.50s">shaped</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.55s">Spider-Man</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.60s">across</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.65s">different</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.70s">timelines</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.75s">and</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="1.80s">universes.</span>
+
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="1.85s">From</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="1.90s">Peter</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="1.95s">Parker</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2s">and</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.05s">his</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.10s">allies</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.15s">to</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.20s">the</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.25s">villains</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.30s">who</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.35s">challenged</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.40s">him,</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.45s">every</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.50s">character</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.55s">has</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.60s">a</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.65s">unique</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.70s">story</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.75s">and</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.80s">a</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.85s">special</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.90s">place</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="2.95s">in</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="3s">this</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="3.05s">ever-expanding</span>
+                <span class="wow animate__animated animate__fadeInLeft" data-wow-delay="3.10s">universe.</span>
+
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.15s">Every</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.20s">picture</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.25s">captures</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.30s">a</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.35s">moment,</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.40s">every</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.45s">character</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.50s">leaves</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.55s">a</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.60s">mark,</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.65s">and</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.70s">every</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.75s">story</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.80s">adds</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.85s">another</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.90s">piece</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="3.95s">to</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="4s">the</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="4.05s">legendary</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="4.10s">Spider-Man</span>
+                <span class="wow animate__animated animate__fadeInRight" data-wow-delay="4.15s">legacy.</span>
+
+            </p>
+
+        </section>
+
+
+        <!-- splide js applied -->
+        <section id="section4">
+            <div class="splide" aria-label="Splide Basic HTML Example">
+                <div class="splide__track">
+                    <!-- Splide normally moves the .splide__list, not each .splide__slide individually. -->
+                    <div class="splide__list">
+                        <div class="splide__slide">
+
+                            <a href="../HTML/explore.html#linktospiderman">
+
+                                <div class="flip-card">
+
+                                    <!-- FRONT -->
+
+                                    <div class="flip-card-front">
+                                        <img src="../gallery/gallery1.png" alt="">
+                                    </div>
+
+                                    <!-- BACK -->
+
+                                    <div class="flip-card-back">
+                                        <h2>Spider-Man</h2>
+                                        <p>
+                                            Explore the world of Spider-Man.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </a>
+
+                        </div>
+                        <div class="splide__slide">
+                            <!-- <img src="../gallery/spidy21.jpg" alt=""> -->
+                        </div>
+                        <div class="splide__slide">
+                            <!-- <img src="../gallery/spidy25.png" alt=""> -->
+                        </div>
+                        <div class="splide__slide">
+                            <!-- <img src="../gallery/spidy10.jpg" alt=""> -->
+                        </div>
+                        <div class="splide__slide">
+                            <!-- <img src="../gallery/spidy24.jpg" alt=""> -->
+                        </div>
+                        <div class="splide__slide">
+                            <!-- <img src="../gallery/spidy27.jpg" alt=""> -->
+                        </div>
+                        <div class="splide__slide">
+                            <!-- <img src="../gallery/spidy14.jpg" alt=""> -->
+                        </div>
+                        <div class="splide__slide">
+                            <!-- <img src="../gallery/spidy19.png" alt=""> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .splide__track → stays fixed
+            .splide__list → moves
+            .splide__slide → sits inside the list -->
+        </section>
+
+        <!-- THE FACES OF THE WEB -->
+        <section id="section5">
+
+            <div class="gallery-heading">
+                <span>01</span>
+                <div>
+                    <p>CHARACTERS</p>
+                    <h2>THE FACES <em>OF THE WEB</em></h2>
+                </div>
+            </div>
+
+
+            <!-- spider-men -->
+            <div class="category">
+
+                <div class="category-title">
+                    <span>01</span>
+                    <h3>SPIDER-MEN</h3>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/tobey-spiderman.jpg" alt="Tobey Maguire Spider-Man">
+                        </div>
+                        <div class="card-content">
+                            <span>EARTH-96283</span>
+                            <h4>Peter Parker</h4>
+                            <p>
+                                The original cinematic Spider-Man who learned
+                                that great power always comes with great responsibility.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/andrew-spiderman.jpg" alt="Andrew Garfield Spider-Man">
+                        </div>
+                        <div class="card-content">
+                            <span>EARTH-120703</span>
+                            <h4>Peter Parker</h4>
+                            <p>
+                                A brilliant and emotionally driven Spider-Man
+                                whose story was shaped by love, loss and redemption.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/tom-spiderman.jpg" alt="Tom Holland Spider-Man">
+                        </div>
+                        <div class="card-content">
+                            <span>EARTH-616</span>
+                            <h4>Peter Parker</h4>
+                            <p>
+                                A young hero who grows from a neighborhood
+                                Spider-Man into one of Earth's greatest defenders.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/miles-morales.jpg" alt="Miles Morales">
+                        </div>
+                        <div class="card-content">
+                            <span>EARTH-1610</span>
+                            <h4>Miles Morales</h4>
+                            <p>
+                                A new generation of Spider-Man with unique powers,
+                                a different story and his own leap of faith.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/tobey-spiderman.jpg" alt="Tobey Maguire Spider-Man">
+                        </div>
+                        <div class="card-content">
+                            <span>EARTH-96283</span>
+                            <h4>Peter Parker</h4>
+                            <p>
+                                The original cinematic Spider-Man who learned
+                                that great power always comes with great responsibility.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/tobey-spiderman.jpg" alt="Tobey Maguire Spider-Man">
+                        </div>
+                        <div class="card-content">
+                            <span>EARTH-96283</span>
+                            <h4>Peter Parker</h4>
+                            <p>
+                                The original cinematic Spider-Man who learned
+                                that great power always comes with great responsibility.
+                            </p>
+                        </div>
+                    </article>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- villains -->
+            <div class="category">
+
+                <div class="category-title">
+                    <span>02</span>
+                    <h3>VILLAINS</h3>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/green-goblin.jpg" alt="Green Goblin">
+                        </div>
+                        <div class="card-content">
+                            <span>OSCORP</span>
+                            <h4>Green Goblin</h4>
+                            <p>
+                                Norman Osborn's twisted transformation created
+                                one of Spider-Man's most dangerous enemies.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/doctor-octopus.jpg" alt="Doctor Octopus">
+                        </div>
+                        <div class="card-content">
+                            <span>DOCTOR</span>
+                            <h4>Doctor Octopus</h4>
+                            <p>
+                                Otto Octavius became bonded with mechanical
+                                tentacles after an experiment went horribly wrong.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/venom.jpg" alt="Venom">
+                        </div>
+                        <div class="card-content">
+                            <span>SYMBIOTE</span>
+                            <h4>Venom</h4>
+                            <p>
+                                A powerful alien symbiote that turns its host
+                                into one of Spider-Man's most iconic adversaries.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/mysterio.jpg" alt="Mysterio">
+                        </div>
+                        <div class="card-content">
+                            <span>ILLUSION</span>
+                            <h4>Mysterio</h4>
+                            <p>
+                                Quentin Beck uses technology, deception and
+                                illusions to create an entirely different kind of threat.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/green-goblin.jpg" alt="Green Goblin">
+                        </div>
+                        <div class="card-content">
+                            <span>OSCORP</span>
+                            <h4>Green Goblin</h4>
+                            <p>
+                                Norman Osborn's twisted transformation created
+                                one of Spider-Man's most dangerous enemies.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/green-goblin.jpg" alt="Green Goblin">
+                        </div>
+                        <div class="card-content">
+                            <span>OSCORP</span>
+                            <h4>Green Goblin</h4>
+                            <p>
+                                Norman Osborn's twisted transformation created
+                                one of Spider-Man's most dangerous enemies.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <!-- allies -->
+            <div class="category">
+
+                <div class="category-title">
+                    <span>03</span>
+                    <h3>ALLIES</h3>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/mj.jpg" alt="MJ">
+                        </div>
+                        <div class="card-content">
+                            <span>SPIDER-MAN</span>
+                            <h4>MJ</h4>
+                            <p>
+                                A fearless and intelligent presence who
+                                stands beside Peter through his greatest challenges.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/ned.jpg" alt="Ned Leeds">
+                        </div>
+                        <div class="card-content">
+                            <span>THE GUY IN THE CHAIR</span>
+                            <h4>Ned Leeds</h4>
+                            <p>
+                                Peter's best friend and trusted partner
+                                who discovers that he is capable of much more.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/aunt-may.jpg" alt="Aunt May">
+                        </div>
+                        <div class="card-content">
+                            <span>FAMILY</span>
+                            <h4>Aunt May</h4>
+                            <p>
+                                Peter's guiding figure whose words help shape
+                                the responsibility behind the Spider-Man mask.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/gwen-stacy.jpg" alt="Gwen Stacy">
+                        </div>
+                        <div class="card-content">
+                            <span>EARTH-120703</span>
+                            <h4>Gwen Stacy</h4>
+                            <p>
+                                A brilliant scientist and Peter's closest
+                                companion whose story became central to his journey.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/mj.jpg" alt="MJ">
+                        </div>
+                        <div class="card-content">
+                            <span>SPIDER-MAN</span>
+                            <h4>MJ</h4>
+                            <p>
+                                A fearless and intelligent presence who
+                                stands beside Peter through his greatest challenges.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/mj.jpg" alt="MJ">
+                        </div>
+                        <div class="card-content">
+                            <span>SPIDER-MAN</span>
+                            <h4>MJ</h4>
+                            <p>
+                                A fearless and intelligent presence who
+                                stands beside Peter through his greatest challenges.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- THE LORE OF THE WEB -->
+        <section id="section6">
+
+            <div class="gallery-heading">
+                <span>02</span>
+                <div>
+                    <p>THE WORLD</p>
+                    <h2>THE LORE <em>OF THE WEB</em></h2>
+                </div>
+            </div>
+
+
+            <!-- suits -->
+            <div class="category">
+
+                <div class="category-title">
+                    <span>01</span>
+                    <h3>SUITS</h3>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/classic-suit.jpg" alt="Classic Spider-Man Suit">
+                        </div>
+                        <div class="card-content">
+                            <span>CLASSIC</span>
+                            <h4>Classic Suit</h4>
+                            <p>
+                                The timeless red and blue design that defined
+                                Spider-Man for generations.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/black-suit.jpg" alt="Black Spider-Man Suit">
+                        </div>
+                        <div class="card-content">
+                            <span>SYMBIOTE</span>
+                            <h4>Black Suit</h4>
+                            <p>
+                                A darker suit that gives Peter enhanced abilities
+                                while bringing out a dangerous side of his power.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/iron-spider.jpg" alt="Iron Spider Suit">
+                        </div>
+                        <div class="card-content">
+                            <span>STARK TECH</span>
+                            <h4>Iron Spider</h4>
+                            <p>
+                                Advanced Stark technology combined with
+                                Spider-Man's abilities and iconic design.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <!-- multiverse -->
+            <div class="category">
+
+                <div class="category-title">
+                    <span>02</span>
+                    <h3>MULTIVERSE</h3>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/earth-616.jpg" alt="Earth 616">
+                        </div>
+                        <div class="card-content">
+                            <span>EARTH-616</span>
+                            <h4>The Main Universe</h4>
+                            <p>
+                                The primary universe at the heart of the
+                                Spider-Man cinematic story.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/spider-verse.jpg" alt="Spider-Verse">
+                        </div>
+                        <div class="card-content">
+                            <span>SPIDER-VERSE</span>
+                            <h4>Infinite Spider-People</h4>
+                            <p>
+                                Countless Spider-People connected across
+                                different dimensions and realities.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/spider-society.jpg" alt="Spider Society">
+                        </div>
+                        <div class="card-content">
+                            <span>SPIDER-SOCIETY</span>
+                            <h4>Across The Web</h4>
+                            <p>
+                                A vast organization bringing Spider-People
+                                together from across the multiverse.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <!-- locations -->
+            <div class="category">
+
+                <div class="category-title">
+                    <span>03</span>
+                    <h3>LOCATIONS</h3>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/new-york.jpg" alt="New York City">
+                        </div>
+                        <div class="card-content">
+                            <span>EARTH-616</span>
+                            <h4>New York City</h4>
+                            <p>
+                                The city Spider-Man protects and the place
+                                where countless stories unfold.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/daily-bugle.jpg" alt="Daily Bugle">
+                        </div>
+                        <div class="card-content">
+                            <span>DAILY BUGLE</span>
+                            <h4>The Daily Bugle</h4>
+                            <p>
+                                The newspaper empire famous for making
+                                Spider-Man headlines and controversy.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/spider-society-hq.jpg" alt="Spider Society Headquarters">
+                        </div>
+                        <div class="card-content">
+                            <span>SPIDER-VERSE</span>
+                            <h4>Spider-Society HQ</h4>
+                            <p>
+                                The extraordinary headquarters connecting
+                                Spider-People from countless realities.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <!-- comics -->
+            <div class="category">
+
+                <div class="category-title">
+                    <span>04</span>
+                    <h3>COMICS</h3>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/amazing-spiderman-comic.jpg" alt="Amazing Spider-Man Comic">
+                        </div>
+                        <div class="card-content">
+                            <span>MARVEL COMICS</span>
+                            <h4>Amazing Spider-Man</h4>
+                            <p>
+                                The legendary comic series that established
+                                Spider-Man as one of Marvel's greatest heroes.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/ultimate-spiderman.jpg" alt="Ultimate Spider-Man Comic">
+                        </div>
+                        <div class="card-content">
+                            <span>ULTIMATE</span>
+                            <h4>Ultimate Spider-Man</h4>
+                            <p>
+                                A modern reimagining of Peter Parker's origin
+                                and early years as Spider-Man.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="card-image">
+                            <img src="../gallery/spiderman-2099-comic.jpg" alt="Spider-Man 2099 Comic">
+                        </div>
+                        <div class="card-content">
+                            <span>FUTURE</span>
+                            <h4>Spider-Man 2099</h4>
+                            <p>
+                                Miguel O'Hara's futuristic take on the
+                                Spider-Man legacy in a distant future.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="gallery-footer">
+
+            <!-- Glass Divider -->
+            <div class="gallery-footer-glass-line"></div>
+
+            <!-- Footer Title -->
+            <div class="gallery-footer-title">
+                <span>THE</span>
+                <h2>WEB ARCHIVES</h2>
+            </div>
+
+            <!-- Red Divider -->
+            <div class="gallery-footer-line"></div>
+
+            <!-- Tagline -->
+            <div class="gallery-footer-info">
+                <p>
+                    Developer by
+                    <iconify-icon class="heart-icon" icon="material-symbols-light:heart-arrow" width="20" height="20">
+                    </iconify-icon>
+                </p>
+            </div>
+
+            <!-- Bottom Labels -->
+            <div class="gallery-footer-bottom">
+                <span>THE FACES OF THE WEB</span>
+                <span>WEB ARCHIVES</span>
+                <span>AS — 2026</span>
+            </div>
+
+        </footer>
+
+    </main>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <!-- splide js js cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <!-- gallery js file -->
+    <script src="../JS/gallery.js"></script>
+    <!-- wow js initiate -->
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

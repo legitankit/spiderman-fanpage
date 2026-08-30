@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Glitch Text</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #050505;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .glitch {
+            position: relative;
+            display: inline-block;
+
+            font-size: 70px;
+            font-weight: 900;
+            letter-spacing: 3px;
+
+            color: white;
+            cursor: pointer;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* RED GLITCH */
+
+        .glitch::before {
+            color: #e50914;
+        }
+
+        /* BLUE GLITCH */
+
+        .glitch::after {
+            color: #00eaff;
+        }
+
+        /* HOVER */
+
+        .glitch:hover::before {
+            opacity: 1;
+            animation: glitch-red 0.25s infinite;
+        }
+
+        .glitch:hover::after {
+            opacity: 1;
+            animation: glitch-blue 0.2s infinite;
+        }
+
+        /* RED ANIMATION */
+
+        @keyframes glitch-red {
+
+            0% {
+                transform: translate(0);
+                clip-path: inset(0 0 80% 0);
+            }
+
+            20% {
+                transform: translate(-5px, 2px);
+                clip-path: inset(20% 0 40% 0);
+            }
+
+            40% {
+                transform: translate(5px, -2px);
+                clip-path: inset(60% 0 10% 0);
+            }
+
+            60% {
+                transform: translate(-3px, 1px);
+                clip-path: inset(10% 0 60% 0);
+            }
+
+            80% {
+                transform: translate(3px, -1px);
+                clip-path: inset(45% 0 30% 0);
+            }
+
+            100% {
+                transform: translate(0);
+                clip-path: inset(0 0 80% 0);
+            }
+        }
+
+        /* BLUE ANIMATION */
+
+        @keyframes glitch-blue {
+
+            0% {
+                transform: translate(0);
+                clip-path: inset(70% 0 0 0);
+            }
+
+            20% {
+                transform: translate(5px, -2px);
+                clip-path: inset(10% 0 60% 0);
+            }
+
+            40% {
+                transform: translate(-5px, 2px);
+                clip-path: inset(50% 0 20% 0);
+            }
+
+            60% {
+                transform: translate(3px, -1px);
+                clip-path: inset(20% 0 50% 0);
+            }
+
+            80% {
+                transform: translate(-3px, 1px);
+                clip-path: inset(60% 0 10% 0);
+            }
+
+            100% {
+                transform: translate(0);
+                clip-path: inset(70% 0 0 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="glitch" data-text="SPIDER-MAN">
+        SPIDER-MAN
+    </h1>
+
+</body>
+
+</html>

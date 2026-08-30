@@ -1,3 +1,32 @@
+// wrpper nav hidden 
+
+const wrapperNav = document.querySelector(".wrapper-nav");
+
+let navTimer;
+
+document.addEventListener("mousemove", function () {
+
+    // Mouse move hua → navbar show
+    wrapperNav.classList.add("show");
+
+    // Purana hide timer cancel
+    clearTimeout(navTimer);
+
+    // Check karo mouse navbar ke andar hai ya nahi
+    const mouseOverNav = wrapperNav.matches(":hover");
+
+    if (!mouseOverNav) {
+
+        // Navbar ke bahar mouse hai,
+        // movement rukne ke 1 second baad hide
+        navTimer = setTimeout(function () {
+            wrapperNav.classList.remove("show");
+        }, 1000);
+
+    }
+
+});
+
 function goHome() {
   // Top pe scroll
   window.scrollTo({
@@ -12,7 +41,6 @@ function goHome() {
   video.play();
 }
 
-
 // web on click - using gsap
 
 document.addEventListener("click", (e) => {
@@ -21,7 +49,13 @@ document.addEventListener("click", (e) => {
   const cy = e.clientY + window.scrollY; // 👈 ye add kar
 
   const total = 12;
-  const radiusLevels = [60, 110, 160];
+  let scale = window.innerWidth < 600 ? 0.6 : window.innerWidth < 900 ? 0.8 : 1;
+
+  const radiusLevels = [
+    60 * scale,
+    110 * scale,
+    160 * scale
+  ];
 
   let points = [];
 
@@ -114,9 +148,38 @@ document.addEventListener("click", (e) => {
     });
   }, 300);
 
-},true);
+}, true);
 
-// left to right move - SPIDERMAN
+// NAV BAR 
+
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobile-menu");
+const closeBtn = document.getElementById("close");
+
+hamburger.addEventListener("click", () => {
+  mobileMenu.classList.add("active");
+  hamburger.style.display = "none";
+});
+
+closeBtn.addEventListener("click", () => {
+  mobileMenu.classList.remove("active");
+
+  setTimeout(() => {
+    hamburger.style.display = "block";
+  }, 200);
+});
+
+const links = document.querySelectorAll(".menu-links a");
+const hoverSound = document.getElementById("hoverSound");
+
+links.forEach(link => {
+  link.addEventListener("mouseenter", () => {
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+  });
+});
+
+// left to right move - SPIDERMAN TEXT : 3RD SECN
 
 gsap.to("#page4 h1", {
   x: "-100%",           // 👈 -200% se -150% (kam movement = slow feel)
@@ -130,7 +193,7 @@ gsap.to("#page4 h1", {
   }
 });
 
-// web single linestring 
+// web single linestring : 4th secn
 var path = "M 10 200 Q 800 0 1490 200"
 var finalPath = "M 10 200 Q 800 200 1490 200"
 
@@ -154,7 +217,7 @@ string.addEventListener("mouseleave", function () {
   })
 });
 
-// image manginifier
+// image manginifier : 5th secn
 let active = null;
 
 function toggleImage(el) {
@@ -199,7 +262,7 @@ function toggleImage(el) {
   active = el;
 }
 
-// section 6
+// section 6 : friendly neighbourhood section
 gsap.registerPlugin(ScrollTrigger);
 
 // text reveal

@@ -1,0 +1,11 @@
+👉 text-align: center; sirf inline / inline-block content ko center karta 
+
+TO CENTER H1 👇 with a border around h1 :
+
+<div>
+    <h1>hello</h1>
+</div>
+
+* h1 default → block element
+* tu ne h1 ke width: fit-content diya → width shrink ho gayi
+* BUT h1 element ab bhi block behave kar raha hai for layout <- VVI -> do display:inline-block;
