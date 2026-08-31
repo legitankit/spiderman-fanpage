@@ -120,9 +120,9 @@ body {
 /* centered SPIDER-MAN TEXT : MEDIA QUERI */
 /* chota screen se bada screen pe jate */
 
-@media (min-width:570px) {
+@media (min-width:600px) {
     .center-text {
-        font-size: 10px;
+        font-size: 30px;
         font-weight: 700;
     }
 }
