@@ -9,7 +9,7 @@
 /* STRICT SYSTEM CURSOR OFF */
 html,
 body {
-    cursor: url("../cursor/cursorlogo.png") 24 14, none !important;
+    cursor: url("../Cursor/cursorlogo.png") 24 14, auto !important;
     overflow-x: hidden;
 }
 
