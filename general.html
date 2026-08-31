@@ -4,24 +4,32 @@
 <html lang="en">
 
 <head>
-    <title>Spider-Man FanPage</title>
+  <title>Spider-Man FanPage</title>
 
-    <!-- Primary SEO -->
-    <meta name="keywords"
-        content="Spider-Man, Spider-Man Universe, Spider-Man Characters, Spider-Man Powers, Spider-Man Web Shooter, Spider-Man Movies, Spider-Man Animation, Spider-Man Marvel, Peter Parker, Miles Morales, Spider-Verse, Marvel Superhero, Spider-Man Web Effects, Spider-Man Fan Art, Spider-Man Villains, Spider-Man Heroes">
-    <meta name="description"
-        content="A complete journey through the Spider-Man universe, from classic stories to modern Spider-Verse adventures. Explore iconic characters, powerful abilities, web-slinging action, and the cinematic world of Spider-Man.">
-    <meta name="author" content="AnkitRaj-[AS]">
-    <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- site logo-link (Ye browser tab ke chhote icon ke liye hai)-->
-    <link rel="icon" type="image/png" href="../gallery/spidylogo.png">
+  <!-- Primary SEO -->
+  <meta name="keywords"
+    content="Spider-Man, Spider-Man Universe, Spider-Man Characters, Spider-Man Powers, Spider-Man Web Shooter, Spider-Man Movies, Spider-Man Animation, Spider-Man Marvel, Peter Parker, Miles Morales, Spider-Verse, Marvel Superhero, Spider-Man Web Effects, Spider-Man Fan Art, Spider-Man Villains, Spider-Man Heroes">
+  <meta name="description"
+    content="A complete journey through the Spider-Man universe, from classic stories to modern Spider-Verse adventures. Explore iconic characters, powerful abilities, web-slinging action, and the cinematic world of Spider-Man.">
+  <meta name="author" content="AnkitRaj-[AS]">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- site logo-link (Ye browser tab ke chhote icon ke liye hai)-->
+  <!-- ust be in every webpage -->
+  <link rel="icon" type="image/png" href="../gallery/spidylogo.png">
 
-    <!-- JSON-LD -->
-    <!-- JSON-LD ka logo browser mein directly display nahi hota. Ye search engines ko publisher ke logo ke baare mein information deta hai.-->
+  <!-- JSON-LD -->
+  <!-- JSON-LD ka logo browser mein directly display nahi hota. Ye search engines ko publisher ke logo ke baare mein information deta hai.-->
+  <!-- Not much necessary for every page, but can do so for every page. If Later agar tum advanced SEO karna chaho, toh har page ke content ke according appropriate Schema.org structured data add kar sakte ho. -->
+  <!-- And every page will have the different links -->
+  <!-- for eg for movies.html "description" data will change | "type" changes to "webpage" | "pusblisher" changes to "ispartof" -->
+  <!-- And the url after the name will be changed to "url": "https://legitankit.github.io/spiderman-fanpage/movies.html", -->
+  <!-- below is a json data of any webpage other than index -->
 
-    <script type="application/ld+json">
-{
+  <!-- for index page -->
+  <script type="application/ld+json">
+
+    {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Spider-Man Tour",
@@ -37,40 +45,61 @@
   }
 }
 
+  </script>
 
+
+  <!-- for page, other than index -->
+  <script type="application/ld+json">
+
+          {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Spider-Man Movies",
+  "url": "https://legitankit.github.io/spiderman-fanpage/movies.html",
+  "description": "...",
+  "isPartOf": {
+  "@type": "WebSite",
+  "name": "Spider-Man Tour",
+  "url": "https://legitankit.github.io/spiderman-fanpage/"
+  }
+  }
+  
 </script>
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <!-- site link -->
-    <link rel="canonical" href="https://yourlivewebsitelink.com/">
-    <meta property="og:url" content="https://yourlivewebsitelink.com/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <!-- site link -->
+  <!-- canonical lik (must be in every webpage & har page mein same nahi hona chahiye) -->
+  <!-- for eg for movies.html page -->
+  <!-- <link rel="canonical" href="https://legitankit.github.io/spiderman-fanpage/movies.html"> -->
+  <link rel="canonical" href="https://yourlivewebsitelink.com/">
+  <meta property="og:url" content="https://yourlivewebsitelink.com/">
 
-    <meta property="og:title" content="Spider-Man Universe | Spider-Verse, Characters & Web Adventures">
+  <meta property="og:title" content="Spider-Man Universe | Spider-Verse, Characters & Web Adventures">
 
-    <meta property="og:description"
-        content="A journey through the Spider-Man universe. Explore Spider-Verse, iconic heroes, powerful villains, and cinematic web-slinging adventures.">
+  <meta property="og:description"
+    content="A journey through the Spider-Man universe. Explore Spider-Verse, iconic heroes, powerful villains, and cinematic web-slinging adventures.">
 
-    <!-- og img link -->
-    <meta property="og:image" content="https://yourlivewebsitelink.com/images/spiderman-og.jpg">
+  <!-- og img link ( it’s page-specific ) -->
+  <meta property="og:image" content="https://yourlivewebsitelink.com/images/spiderman-og.jpg">
 
-    <meta property="og:image:alt" content="Spider-Man with web effects and iconic characters from the Spider-Verse">
+  <meta property="og:image:alt" content="Spider-Man with web effects and iconic characters from the Spider-Verse">
 
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:site_name" content="Spider-Man Tour">
-    <meta property="og:locale" content="en_US">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:site_name" content="Spider-Man Tour">
+  <meta property="og:locale" content="en_US">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Spider-Man Universe | Spider-Verse & Web Adventures">
-    <meta name="twitter:url" content="https://yourlivewebsitelink.com/">
-    <meta name="twitter:description"
-        content="Explore the Spider-Man universe with Spider-Verse, iconic heroes, villains, and web-slinging adventures.">
-    <meta name="twitter:image" content="https://yourlivewebsitelink.com/images/spiderman-og.jpg">
-    <meta name="twitter:image:alt" content="Spider-Man cinematic web animation with Spider-Verse characters">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Spider-Man Universe | Spider-Verse & Web Adventures">
+  <meta name="twitter:url" content="https://yourlivewebsitelink.com/">
+  <meta name="twitter:description"
+    content="Explore the Spider-Man universe with Spider-Verse, iconic heroes, villains, and web-slinging adventures.">
+  <meta name="twitter:image" content="https://yourlivewebsitelink.com/images/spiderman-og.jpg">
+  <meta name="twitter:image:alt" content="Spider-Man cinematic web animation with Spider-Verse characters">
 
-    <!-- CSS FILE -->
-    <link rel="stylesheet" href="../CSS/style.css">
+  <!-- CSS FILE -->
+  <link rel="stylesheet" href="../CSS/style.css">
 </head>
 
 <body>

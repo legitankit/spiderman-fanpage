@@ -7,7 +7,7 @@
 /* curson on sec 2 */
 #section2,
 #timelineCanvas {
-    cursor: url("../cursor/cursorlogo2.png") 24 14, none !important;
+    cursor: url("../Cursor/cursorlogo2.png") 24 14, auto !important;
 }
 
 /* TEXT SELECTION AND SCROLLBAR */

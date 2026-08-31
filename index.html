@@ -16,19 +16,25 @@
     <link rel="icon" type="image/png" href="./gallery/spidylogo.png">
 
     <!-- JSON-LD -->
+    <!-- Not much necessary for every page, but can do so for every page. If Later agar tum advanced SEO karna chaho, toh har page ke content ke according appropriate Schema.org structured data add kar sakte ho. -->
+    <!-- And every page will have the different links -->
+    <!-- for eg for movies.html "description" data will change | "type" changes to "webpage" | "pusblisher" changes to "ispartof" -->
+    <!-- And the url after the name will be changed to "url": "https://legitankit.github.io/spiderman-fanpage/movies.html", -->
+    <!-- below is a json data of any webpage other than index -->
+
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Spider-Man Tour",
-  "url": "https://yourlivewebsitelink.com/",
+  "url": "https://legitankit.github.io/spiderman-fanpage/",
   "description": "Explore the complete Spider-Man universe with classic stories, Spider-Verse, and modern cinematic adventures.",
   "publisher": {
     "@type": "Person",
     "name": "Ankit Raj",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://yourlivewebsitelink.com/images/spiderman-logo.png"
+      "url": "https://legitankit.github.io/spiderman-fanpage/gallery/spidylogo.png"
     }
   }
 }
@@ -37,16 +43,19 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <!-- site link -->
-    <link rel="canonical" href="https://yourlivewebsitelink.com/">
-    <meta property="og:url" content="https://yourlivewebsitelink.com/">
+    <!-- canonical lik (must be in every webpage & har page mein same nahi hona chahiye) -->
+    <!-- for eg for movies.html page -->
+    <!-- <link rel="canonical" href="https://legitankit.github.io/spiderman-fanpage/movies.html"> -->
+    <link rel="canonical" href="https://legitankit.github.io/spiderman-fanpage/">
+    <meta property="og:url" content="https://legitankit.github.io/spiderman-fanpage/index.html">
 
     <meta property="og:title" content="Spider-Man Universe | Spider-Verse, Characters & Web Adventures">
 
     <meta property="og:description"
         content="A journey through the Spider-Man universe. Explore Spider-Verse, iconic heroes, powerful villains, and cinematic web-slinging adventures.">
 
-    <!-- og img link -->
-    <meta property="og:image" content="https://yourlivewebsitelink.com/gallery/spidyogimage.png">
+    <!-- og img link ( it’s page-specific ) -->
+    <meta property="og:image" content="https://legitankit.github.io/spiderman-fanpage/gallery/spidyogimage.png">
 
     <meta property="og:image:alt" content="Spider-Man with web effects and iconic characters from the Spider-Verse">
 
@@ -57,10 +66,10 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Spider-Man Universe | Spider-Verse & Web Adventures">
-    <meta name="twitter:url" content="https://yourlivewebsitelink.com/">
+    <meta name="twitter:url" content="https://legitankit.github.io/spiderman-fanpage/">
     <meta name="twitter:description"
         content="Explore the Spider-Man universe with Spider-Verse, iconic heroes, villains, and web-slinging adventures.">
-    <meta name="twitter:image" content="https://yourlivewebsitelink.com/images/spiderman-og.jpg">
+    <meta name="twitter:image" content="https://legitankit.github.io/spiderman-fanpage/gallery/spidyogimage.png">
     <meta name="twitter:image:alt" content="Spider-Man cinematic web animation with Spider-Verse characters">
 
     <!-- CSS FILE -->
