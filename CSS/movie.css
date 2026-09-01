@@ -9,6 +9,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 
@@ -274,6 +275,26 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
+
+    .hero-content {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(40px, 14vw, 70px);
+        letter-spacing: -2px;
+    }
+
+    .hero-content h1 span {
+        letter-spacing: 2px;
+    }
+
+    .hero-content h1 #movies {
+        letter-spacing: 5px;
+    }
+
+    /* movies part */
 
     .movies-hero {
         min-height: 90vh;
@@ -722,6 +743,26 @@ nav a:hover {
     transition: all ease 0.7s;
 }
 
+@media (max-width: 600px) {
+
+    .trailer-container {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+    }
+
+    .trailer-card {
+        width: 100%;
+        min-width: 0;
+        min-height: 280px;
+    }
+
+    .trailer-card iframe {
+        width: 100%;
+        min-height: 280px;
+        height: 280px;
+    }
+}
+
 
 
 /* footer */
@@ -803,7 +844,7 @@ nav a:hover {
     font-size: 12px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
     .footer-content {
         flex-direction: column;
@@ -811,13 +852,15 @@ nav a:hover {
     }
 
     .footer-links {
+        width: 100%;
         align-items: center;
     }
 
     .footer-nav {
+        width: 100%;
+        max-width: 100%;
         flex-wrap: wrap;
         justify-content: center;
-        width: max-content;
+        gap: 20px;
     }
-
 }
